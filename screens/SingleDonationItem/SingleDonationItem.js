@@ -10,6 +10,8 @@ import Badge from '../../components/Badge/Badge';
 import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
 
+import {Routes} from '../../navigation/Routes';
+
 const SingleDonationItem = ({navigation, route}) => {
   const donationItemInformation = useSelector(
     state => state.donations.selectedDonationInformation,
@@ -29,18 +31,13 @@ const SingleDonationItem = ({navigation, route}) => {
         <Header title={donationItemInformation.name} type={1} />
         <Text style={style.description}>
           {donationItemInformation.description}
-          {donationItemInformation.description}
-          {donationItemInformation.description}
-          {donationItemInformation.description}
-          {donationItemInformation.description}
-          {donationItemInformation.description}
         </Text>
       </ScrollView>
       <View style={style.button}>
         <Button
           title={'Donate'}
           onPress={() => {
-            console.log('You have donated for charity! Thank you');
+            navigation.navigate(Routes.Payment);
           }}
         />
       </View>
